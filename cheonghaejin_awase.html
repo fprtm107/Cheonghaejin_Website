@@ -618,44 +618,6 @@
         border-color: var(--accent);
       }
 
-      #OB .action-buttons {
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-      }
-
-      #OB .btn-primary {
-        background: linear-gradient(135deg, #4f6aff, #1f46ff);
-        color: #ffffff;
-        box-shadow: var(--shadow);
-      }
-
-      #OB .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 26px 55px rgba(31, 70, 255, 0.35);
-      }
-
-      #OB .btn-warning {
-        background: #ff9800;
-        color: white;
-      }
-      #OB .btn-warning:hover {
-        background: #f57c00;
-        transform: translateY(-2px);
-      }
-      #OB .admin-btn {
-        background: #4caf50;
-        color: white;
-      }
-      #OB .admin-btn:hover {
-        background: #388e3c;
-        transform: translateY(-2px);
-      }
-      
-      body.admin-mode #OB .admin-btn {
-        background: #e53935;
-      }
-
       #OB .charts-container {
         display: flex;
         flex-wrap: wrap;
@@ -793,128 +755,6 @@
         font-weight: bold;
         font-size: 0.9rem;
       }
-
-      #OB .editable-cell {
-        padding: 8px;
-        border-radius: 5px;
-        transition: all 0.3s ease;
-      }
-      
-      body:not(.admin-mode) #OB .editable-cell {
-        cursor: default;
-      }
-      
-      body.admin-mode #OB .editable-cell {
-        cursor: text;
-      }
-
-      #OB .editable-cell:hover {
-        background: none;
-      }
-      
-      body.admin-mode #OB .editable-cell:hover {
-        background: var(--accent-soft);
-      }
-
-      #OB .editable-input {
-        width: 100%;
-        border: 2px solid var(--accent);
-        background: white;
-        padding: 8px;
-        font-size: inherit;
-        font-family: inherit;
-        font-weight: inherit;
-        border-radius: 5px;
-      }
-
-      #OB .editable-input:focus {
-        outline: none;
-      }
-      
-      .admin-only {
-        display: none;
-      }
-
-      body.admin-mode .admin-only {
-        display: table-cell;
-      }
-      
-      #OB .table th.admin-only,
-      #OB .table td.admin-only {
-        display: none;
-      }
-      body.admin-mode #OB .table th.admin-only,
-      body.admin-mode #OB .table td.admin-only {
-        display: table-cell;
-      }
-      
-      #OB .table-actions {
-        display: flex;
-        gap: 5px;
-      }
-
-      #OB .delete-btn {
-        background: #ff4444;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-        font-size: 0.8rem;
-        transition: all 0.3s ease;
-      }
-
-      #OB .delete-btn:hover {
-        background: #cc0000;
-        transform: scale(1.1);
-      }
-      
-      body:not(.admin-mode) #OB .btn-primary, 
-      body:not(.admin-mode) #OB .btn-warning {
-        display: none;
-      }
-      
-      body.admin-mode #OB .btn-primary, 
-      body.admin-mode #OB .btn-warning {
-        display: block;
-      }
-      
-      #OB .add-section {
-        background: var(--bg-alt);
-        border-radius: var(--card-radius);
-        border: 1px solid rgba(23, 27, 42, 0.08);
-        box-shadow: var(--shadow);
-        padding: 30px;
-        margin-bottom: 30px;
-        display: none;
-      }
-
-      #OB .add-form {
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-        align-items: center;
-      }
-
-      #OB .form-input {
-        padding: 14px 20px; 
-        border: 1px solid rgba(59, 91, 255, 0.4); 
-        border-radius: 12px; 
-        font-size: 0.95rem;
-        transition: border-color 0.3s ease;
-        min-width: 200px;
-      }
-
-      #OB .form-input:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
-      
-      #OB .add-form .btn {
-        padding: 14px 28px;
-        border-radius: 12px;
-      }
       
       #OB .no-data {
         text-align: center;
@@ -929,65 +769,10 @@
         opacity: 0.7;
       }
 
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.5);
-      }
-
-      .modal-content {
-        background: var(--bg-alt);
-        margin: 10% auto;
-        padding: 30px;
-        border-radius: var(--card-radius);
-        width: 90%;
-        max-width: 500px;
-        text-align: center;
-        color: var(--text);
-        position: relative;
-      }
-      
-      .modal-content h3 {
-        margin-top: 0;
-        color: var(--text);
-      }
-      
-      .modal-content p {
-        color: var(--muted);
-      }
-
-      .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-        line-height: 1;
-        position: absolute;
-        top: 15px;
-        right: 20px;
-      }
-
-      .close:hover {
-        color: #000;
-      }
-      
-      .password-input {
-        width: 100%;
-        padding: 12px 15px;
-        margin-bottom: 15px;
-        border: 1px solid rgba(59, 91, 255, 0.4);
-        border-radius: 12px;
-        box-sizing: border-box;
-      }
-      .password-input:focus {
-        border-color: var(--accent);
-        outline: none;
+      #OB .map-container {
+        margin-top: 30px;
+        overflow: hidden; 
+        padding: 0;
       }
 
       #OB .map-header {
@@ -1097,7 +882,7 @@
     <nav class="main-toolbar">
       <div class="toolbar-container">
         <span class="logo">
-          <a href="chunghaejin_awase.html">CHEONGHAEJIN</a>
+          <a href="cheonghaejin_awase.html">CHEONGHAEJIN</a>
         </span>
         <ul>
           <li><a href="#about">개요</a></li>
@@ -1113,16 +898,17 @@
         <div class="hero">
           <div class="hero-content">
             <span class="hero-kicker">Japan IT Engineer Job Training</span>
-            <h1>일본 IT 엔지니어 집중취업 연수과정</h1>
+            <h1>일본 IT 엔지니어<br>집중취업 연수과정</h1>
             <p>
-              일본 IT 취업을 목표로 하는 인재를 위해 어학, 직무, 커리어 코칭을
-              통합한 단계별 프로그램입니다. 
+              장기적응형 일본IT분야 인재 양성을 목표<br>
+              심화 일본어를 활용, JAVA 중심의 IT 실무 교육, 개별 멘토링등<br>
+              다각돌로 현지 취업을 위한 서포트를 진행합니다. 
             </p>
           </div>
           <div class="hero-visual">
             <div class="hero-card">
               <h2>Program Highlights</h2>
-              <p>청해진이 제공하는 대표 경험입니다.</p>
+              <p>청해진이 제공하는 대표 컨텐츠입니다.</p>
               <ul>
                 <li>• 맞춤형 일본 IT 취업 로드맵</li>
                 <li>• 실전 중심 프로젝트 & 멘토링</li>
@@ -1139,8 +925,9 @@
       <div>
         <h2 class="section-title">프로그램 개요</h2>
         <p class="section-subtitle">
-          일본에 취직을 하고 싶은 사람들을 위해 설계된 연속형
-          연수 프로그램입니다.
+          "청해진"이란 한국산업인력공단에서 주관하는<br>
+          청년해외진출대학 사업의 줄임말로, 직무+언어+기타 취업 지원 교육을 통해<br>
+          해외취업에 성공할 수 있도록 지원하는 프로그램입니다.
         </p>
         <div class="about-grid">
           <article class="card">
@@ -1179,7 +966,7 @@
             <p>
               개인의 목표와 역량에 맞춘 컨설팅으로 학습 전략과 취업 전략을 동시에
               설계합니다.
-            </p>
+              </p>
           </article>
           <article class="feature-card">
             <div class="feature-icon">💰</div>
@@ -1279,22 +1066,6 @@
                 <option value="">전체 지역</option>
               </select>
             </div>
-            <div class="action-buttons">
-              <button class="btn admin-btn" id="adminToggleBtn" onclick="toggleAdminMode()">관리자 모드</button>
-              <button class="btn btn-primary" onclick="showAddForm()">➕ 기업 추가</button>
-              <button class="btn btn-warning" onclick="clearAllData()">🗑️ 모든 데이터 삭제</button>
-            </div>
-          </div>
-
-          <div class="add-section" id="addSection">
-            <h3 style="margin-bottom: 20px;">새 기업 추가</h3>
-            <div class="add-form">
-              <input type="text" class="form-input" id="newCompany" placeholder="기업명 입력">
-              <input type="text" class="form-input" id="newIndustry" placeholder="업종 입력">
-              <input type="text" class="form-input" id="newLocation" placeholder="지역 입력">
-              <button class="btn btn-primary" onclick="saveNewCompany()">💾 저장</button>
-              <button class="btn" onclick="hideAddForm()" style="background: #ccc;">취소</button>
-            </div>
           </div>
 
           <div class="table-container" id="tableContainer">
@@ -1311,7 +1082,6 @@
                     <th>기업명</th>
                     <th>업종</th>
                     <th>지역</th>
-                    <th class="admin-only">관리</th>
                   </tr>
                 </thead>
                 <tbody id="tableBody">
@@ -1334,21 +1104,20 @@
           <div class="no-data" id="noDataMessage">
             <div>🏢</div>
             <h3>취업 기업 데이터가 없습니다</h3>
-            <p>새 기업을 추가해보세요</p>
+            <p>데이터를 로드하는 중입니다...</p>
           </div>
         </div>
       </div>
     </section>
 
     <section id="support">
-      <h2 class="section-title">지원 및 문의</h2>
+      <h2 class="section-title">문의</h2>
       <p class="section-subtitle">
-        프로그램 참여, 산학 협력, 취업 연계 등 다양한 형태의 협업 제안을
-        기다립니다.
+        하기의 연락처 및 이메일로 문의가 가능합니다.
       </p>
       <div class="card contact-card">
         <p>
-          부산외대 대학본관 F101 진로취업팀
+          부산외국어대학교 대학본관 F101 진로취업팀
           연락처 051-509-6485
         </p>
         <div class="cta-group">
@@ -1457,7 +1226,7 @@
       const icons = {
         tech: "💻",
         lang: "🗣️",
-        career: "👔",
+        career: "💼",
         cert: "🎓",
         exp: "🏢"
       };
@@ -1577,9 +1346,6 @@
       // === 취업현황 JavaScript ===
       let companyData = [];
       let filteredData = [];
-      let isAdminMode = false;
-      let pendingAction = null;
-      const ADMIN_PASSWORD = '1234';
       const SPREADSHEET_API_URL = 'https://script.google.com/macros/s/AKfycbyMJ3nwJ6kqDZdq5wYgqCYLGojowUJqn6X5KQrID-dVVPbtM98fvgvij4lEslEvb_QX/exec';
       const colorCache = {};
 
@@ -1641,12 +1407,6 @@
         updateLocationChart();
         updateFilters();
         filterData();
-        const bodyElement = document.body;
-        if (isAdminMode) {
-          bodyElement.classList.add('admin-mode');
-        } else {
-          bodyElement.classList.remove('admin-mode');
-        }
       }
 
       function updateStats() {
@@ -1764,28 +1524,22 @@
       function renderTable() {
         const tbody = document.getElementById('tableBody');
         if (filteredData.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; padding: 40px; color: var(--muted);">검색 결과가 없습니다</td></tr>';
+          tbody.innerHTML = '<tr><td colspan="3" style="text-align: center; padding: 40px; color: var(--muted);">검색 결과가 없습니다</td></tr>';
         } else {
-          tbody.innerHTML = filteredData.map((item, index) => {
-            const originalIndex = companyData.findIndex(d => d.company === item.company && d.industry === item.industry && d.location === item.location);
+          tbody.innerHTML = filteredData.map((item) => {
             return `
             <tr>
               <td>
                 <div class="table-company-cell">
                   <div class="table-logo">${getCompanyLogo(item.company)}</div>
-                  <div class="editable-cell" onclick="editTableCell(${originalIndex}, 'company', this)">${item.company || ''}</div>
+                  <div>${item.company || ''}</div>
                 </div>
               </td>
               <td>
-                <span class="editable-cell" onclick="editTableCell(${originalIndex}, 'industry', this)">${item.industry || ''}</span>
+                <span>${item.industry || ''}</span>
               </td>
               <td>
-                <span class="editable-cell" onclick="editTableCell(${originalIndex}, 'location', this)">${item.location || ''}</span>
-              </td>
-              <td class="admin-only">
-                <div class="table-actions">
-                  <button class="delete-btn" onclick="deleteCompany(${originalIndex})">×</button>
-                </div>
+                <span>${item.location || ''}</span>
               </td>
             </tr>
           `;
@@ -1800,261 +1554,10 @@
         return company ? company.charAt(0).toUpperCase() : '?';
       }
 
-      function editTableCell(index, field, element) {
-        if (!isAdminMode || !element) return;
-        if (element.querySelector('input')) return;
-
-        const currentValue = companyData[index][field] || '';
-        element.innerHTML = `<input type="text" class="editable-input" value="${currentValue}" onblur="saveTableCell(${index}, '${field}', this.value, this.parentElement)" onkeypress="handleTableEnter(event, ${index}, '${field}', this)">`;
-        
-        const input = element.querySelector('input');
-        input.focus();
-        input.select();
-      }
-
-      async function saveTableCell(originalIndex, field, value, element) {
-        value = value.trim();
-        if (value && companyData[originalIndex]) {
-          companyData[originalIndex][field] = value;
-          await updateCompanyOnServer(originalIndex, companyData[originalIndex].company, companyData[originalIndex].industry, companyData[originalIndex].location);
-          updateInterface(); 
-        }
-      }
-
-      async function updateCompanyOnServer(index, company, industry, location) {
-        if (!isAdminMode) return;
-        
-        return new Promise((resolve) => {
-          window.handleUpdateResponse = function(result) {
-            if (result.status === 'SUCCESS') {
-              alert("기업 정보가 성공적으로 수정되었습니다.");
-            } else {
-              alert("수정 중 오류: " + (result.message || "알 수 없는 오류"));
-            }
-            loadData();
-            resolve();
-          };
-
-          const params = new URLSearchParams({
-            callback: 'handleUpdateResponse',
-            action: 'UPDATE',
-            index: index,
-            company: company || '',
-            industry: industry || '',
-            location: location || ''
-          });
-
-          const script = document.createElement('script');
-          script.src = SPREADSHEET_API_URL + '?' + params.toString();
-          script.onerror = function() {
-            alert("수정 요청 중 오류가 발생했습니다.");
-            loadData();
-            resolve();
-          };
-          
-          document.head.appendChild(script);
-        });
-      }
-
-      function handleTableEnter(event, index, field, input) {
-        if (event.key === 'Enter') {
-          input.blur();
-        }
-      }
-
-      function deleteCompany(index) {
-        if (!isAdminMode) return;
-        const company = companyData[index];
-        
-        showConfirm(`정말로 "${company.company}"을(를) 삭제하시겠습니까?`, () => {
-          deleteCompanyOnServer(index);
-        });
-      }
-
-      async function deleteCompanyOnServer(index) {
-        if (!isAdminMode) return;
-        
-        return new Promise((resolve) => {
-          window.handleDeleteResponse = function(result) {
-            if (result.status === 'SUCCESS') {
-              alert("기업 정보가 성공적으로 삭제되었습니다.");
-            } else {
-              alert("삭제 중 오류: " + (result.message || "알 수 없는 오류"));
-            }
-            closeModal();
-            loadData();
-            resolve();
-          };
-
-          const params = new URLSearchParams({
-            callback: 'handleDeleteResponse',
-            action: 'DELETE',
-            index: index
-          });
-
-          const script = document.createElement('script');
-          script.src = SPREADSHEET_API_URL + '?' + params.toString();
-          script.onerror = function() {
-            alert("삭제 요청 중 오류가 발생했습니다.");
-            closeModal();
-            loadData();
-            resolve();
-          };
-          
-          document.head.appendChild(script);
-        });
-      }
-
-      async function saveNewCompany() {
-        if (!isAdminMode) return;
-        const company = document.getElementById('newCompany').value.trim();
-        const industry = document.getElementById('newIndustry').value.trim();
-        const location = document.getElementById('newLocation').value.trim();
-
-        if (!company) {
-          alert('기업명을 입력해주세요.');
-          document.getElementById('newCompany').focus();
-          return;
-        }
-        
-        if (!industry) {
-          alert('업종을 입력해주세요.');
-          document.getElementById('newIndustry').focus();
-          return;
-        }
-        
-        if (!location) {
-          alert('지역을 입력해주세요.');
-          document.getElementById('newLocation').focus();
-          return;
-        }
-
-        return new Promise((resolve) => {
-          window.handleAddResponse = function(result) {
-            if (result.status === 'SUCCESS') {
-              alert("기업 데이터가 성공적으로 추가되었습니다.");
-              hideAddForm();
-            } else {
-              alert("추가 중 오류: " + (result.message || "알 수 없는 오류"));
-            }
-            loadData();
-            resolve();
-          };
-
-          const params = new URLSearchParams({
-            callback: 'handleAddResponse',
-            action: 'ADD',
-            company: company,
-            industry: industry || '',
-            location: location || ''
-          });
-
-          const script = document.createElement('script');
-          script.src = SPREADSHEET_API_URL + '?' + params.toString();
-          script.onerror = function() {
-            alert("추가 요청 중 오류가 발생했습니다.");
-            loadData();
-            resolve();
-          };
-          
-          document.head.appendChild(script);
-        });
-      }
-
-      function clearAllData() {
-        if (!isAdminMode) return;
-        showConfirm('모든 데이터를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.', () => {
-          companyData = [];
-          updateInterface();
-        });
-      }
-
-      function showConfirm(message, callback) {
-        document.getElementById('confirmMessage').textContent = message;
-        document.getElementById('confirmModal').style.display = 'block';
-        pendingAction = callback;
-      }
-
-      function confirmAction() {
-        if (pendingAction) {
-          pendingAction();
-          pendingAction = null;
-        }
-        closeModal();
-      }
-
-      function closeModal() {
-        if(document.getElementById('confirmModal'))
-          document.getElementById('confirmModal').style.display = 'none';
-        if(document.getElementById('passwordModal'))
-          document.getElementById('passwordModal').style.display = 'none';
-        pendingAction = null;
-      }
-      
-      function showAddForm() {
-        if (!isAdminMode) {
-          alert('관리자 모드에서만 기업을 추가할 수 있습니다.');
-          return;
-        }
-        document.getElementById('newCompany').value = '';
-        document.getElementById('newIndustry').value = '';
-        document.getElementById('newLocation').value = '';
-        
-        document.getElementById('addSection').style.display = 'block';
-        document.getElementById('newCompany').focus();
-      }
-
-      function hideAddForm() {
-        document.getElementById('addSection').style.display = 'none';
-        document.getElementById('newCompany').value = '';
-        document.getElementById('newIndustry').value = '';
-        document.getElementById('newLocation').value = '';
-      }
-      
-      function toggleAdminMode() {
-        if (isAdminMode) {
-          isAdminMode = false;
-          document.getElementById('adminToggleBtn').textContent = '관리자 모드';
-          hideAddForm(); 
-        } else {
-          document.getElementById('passwordInput').value = '';
-          document.getElementById('passwordModal').style.display = 'block';
-          document.getElementById('passwordInput').focus();
-        }
-        updateInterface();
-      }
-      
-      function checkPassword() {
-        const password = document.getElementById('passwordInput').value;
-        if (password === ADMIN_PASSWORD) {
-          isAdminMode = true;
-          document.getElementById('adminToggleBtn').textContent = '관리자 모드 (ON)';
-          closeModal();
-          alert('관리자 모드가 활성화되었습니다.');
-        } else {
-          alert('비밀번호가 올바르지 않습니다.');
-          document.getElementById('passwordInput').value = '';
-          document.getElementById('passwordInput').focus();
-        }
-        updateInterface();
-      }
-
       // 취업현황 이벤트 리스너
       document.addEventListener('DOMContentLoaded', () => {
         const obElement = document.getElementById('OB');
         if (obElement) {
-          const closeButtons = document.querySelectorAll('.close'); 
-          closeButtons.forEach(btn => btn.onclick = closeModal);
-
-          const passwordInput = document.getElementById('passwordInput');
-          if(passwordInput) {
-            passwordInput.addEventListener('keypress', function(e) {
-              if (e.key === 'Enter') {
-                checkPassword();
-              }
-            });
-          }
-
           const searchInput = document.getElementById('searchInput');
           if(searchInput) searchInput.addEventListener('input', filterData);
           
@@ -2062,80 +1565,10 @@
           if(industryFilter) industryFilter.addEventListener('change', filterData);
           const locationFilter = document.getElementById('locationFilter');
           if(locationFilter) locationFilter.addEventListener('change', filterData);
-
-          const newCompany = document.getElementById('newCompany');
-          if(newCompany) {
-            newCompany.addEventListener('keypress', function(e) {
-              if (e.key === 'Enter') document.getElementById('newIndustry').focus();
-            });
-          }
-          
-          const newIndustry = document.getElementById('newIndustry');
-          if(newIndustry) {
-            newIndustry.addEventListener('keypress', function(e) {
-              if (e.key === 'Enter') document.getElementById('newLocation').focus();
-            });
-          }
-
-          const newLocation = document.getElementById('newLocation');
-          if(newLocation) {
-            newLocation.addEventListener('keypress', function(e) {
-              if (e.key === 'Enter') saveNewCompany();
-            });
-          }
         }
-
-        window.onclick = function(event) {
-          const modal = document.getElementById('confirmModal');
-          const passwordModal = document.getElementById('passwordModal');
-          if (event.target === modal || event.target === passwordModal) {
-            closeModal();
-          }
-        }
-
-        document.addEventListener('keydown', function(e) {
-          if (isAdminMode) {
-            if (e.ctrlKey || e.metaKey) {
-              if (e.key === 'n') {
-                e.preventDefault();
-                showAddForm();
-              }
-            }
-          }
-          if (e.key === 'Escape') {
-            hideAddForm();
-            closeModal();
-          }
-        });
         
         loadData();
       });
     </script>
-    
-    <!-- 모달 -->
-    <div id="confirmModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">×</span>
-        <h3>확인</h3>
-        <p id="confirmMessage"></p>
-        <div style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
-          <button class="btn btn-primary" onclick="confirmAction()">확인</button>
-          <button class="btn" onclick="closeModal()" style="background: #ccc;">취소</button>
-        </div>
-      </div>
-    </div>
-
-    <div id="passwordModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">×</span>
-        <h3>관리자 비밀번호</h3>
-        <p>관리자 모드를 활성화하려면 비밀번호를 입력하세요.</p>
-        <input type="password" id="passwordInput" class="password-input">
-        <div style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
-          <button class="btn btn-primary" onclick="checkPassword()">확인</button>
-          <button class="btn" onclick="closeModal()" style="background: #ccc;">취소</button>
-        </div>
-      </div>
-    </div>
   </body>
 </html>
