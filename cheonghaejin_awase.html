@@ -11,13 +11,18 @@
         --bg-alt: #ffffff;
         --text: #171b2a;
         --muted: #5a6382;
+        
+        /* 메인 포인트 컬러 */
         --accent: #FF6D00; 
         --accent-soft: rgba(255, 160, 0, 0.1);
+        
         --card-radius: 18px;
         --max-width: 1120px;
         --shadow: 0 22px 48px rgba(255, 109, 0, 0.08);
-        --course-prep: #FFC107;
-        --course-main: #FF6D00;
+
+        /* 과정별 테마색 */
+        --course-prep: #FFC107;      /* 노랑 */
+        --course-main: #FF6D00;      /* 주황 */
       }
 
       html {
@@ -29,66 +34,59 @@
 
       body {
         margin: 0;
-        padding-top: 70px;
+        /* 툴바 높이만큼 상단 여백 확보 */
+        padding-top: 80px; 
         font-family: 'Noto Sans KR', "Inter", sans-serif;
         background: radial-gradient(circle at 50% 10%, rgba(255, 248, 225, 0.6) 0%, rgba(255, 255, 255, 1) 100%), var(--bg);
         color: var(--text);
         line-height: 1.6;
       }
 
-      /* --- 고정 툴바 --- */
+      /* --- [중요] 고정 툴바 스타일 복구 --- */
+      .main-toolbar {
+        position: fixed; /* 스크롤해도 화면에 고정 */
+        top: 0; 
+        left: 0; 
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95); /* 하얀색 배경 */
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        z-index: 1000; 
+        padding: 16px 0;
+        height: 70px; /* 높이 명시 */
+      }
+
       .main-toolbar .toolbar-container {
-        max-width: var(--max-width);
-        margin: 0 auto;
+        max-width: var(--max-width); 
+        margin: 0 auto; 
         padding: 0 24px;
-        display: flex;
-        justify-content: space-between;
+        display: flex; 
+        justify-content: space-between; 
         align-items: center;
+        height: 100%;
       }
 
-      /* 왼쪽 요소 그룹 (이미지, 텍스트, 로고 나란히 배치) */
+      /* 툴바 왼쪽 영역 (이미지, 텍스트, 로고) */
       .toolbar-left {
-        display: flex;
-        align-items: center;
-        gap: 16px; /* 요소 간 간격 */
+        display: flex; align-items: center; gap: 16px;
       }
-
-      /* 로고 이미지 크기 조절 */
+      
       .toolbar-left img {
-        height: 38px; /* 툴바 높이에 맞게 조절 */
-        width: auto;
-        display: block;
+        height: 38px; width: auto; display: block;
       }
 
-      /* 일본IT전공 텍스트 스타일 */
       .dept-link {
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--text);
-        text-decoration: none;
-        transition: color 0.2s;
+        font-size: 16px; font-weight: 700; color: var(--text);
+        text-decoration: none; transition: color 0.2s;
+        white-space: nowrap; /* 줄바꿈 방지 */
       }
+      .dept-link:hover { color: var(--accent); }
 
-      .dept-link:hover {
-        color: var(--accent); /* 오버 시 오렌지색 */
-      }
-
-      /* 구분선 스타일 (|) */
       .divider {
-        width: 1px;
-        height: 16px;
-        background-color: #ddd;
-        margin: 0 4px;
+        width: 1px; height: 16px; background-color: #ddd; margin: 0 4px;
       }
 
-      /* 기존 로고 스타일 유지 */
-      .logo {
-        font-size: 20px;
-        font-weight: 800; /* 좀 더 굵게 강조 */
-        letter-spacing: 0.05em;
-        color: var(--accen);
-      }
-
+      .logo { font-size: 20px; font-weight: 800; letter-spacing: 0.05em; color: var(--accent); }
       .logo a { color: inherit; text-decoration: none; }
       
       nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
@@ -103,7 +101,9 @@
         height: 100vh; min-height: 700px;
         display: flex; flex-direction: column; justify-content: center;
         padding: 0 24px; scroll-snap-align: start;
-        margin-top: -70px; padding-top: 70px;
+        /* 툴바에 가려지지 않도록 조정 */
+        margin-top: -80px; 
+        padding-top: 80px;
       }
 
       header .container { max-width: var(--max-width); margin: 0 auto; width: 100%; }
@@ -305,6 +305,8 @@
       #OB .table-company-cell { display: flex; align-items: center; gap: 15px; }
       #OB .table-logo { width: 40px; height: 40px; border-radius: 8px; background: #FF6D00; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
       #OB .no-data { text-align: center; padding: 60px 20px; color: var(--muted); display: none; }
+      
+      /* [수정] 지도 헤더 왼쪽 정렬 */
       #OB .map-header { display: block; text-align: left; }
       
       #OB .map-container iframe {
@@ -314,10 +316,16 @@
         border-bottom-right-radius: var(--card-radius);
       }
 
-      /* 문의처 카드 스타일 수정 (이미지 스타일 적용) */
+      /* 문의처 카드 스타일 */
       .contact-card {
-        display: grid; gap: 16px; background: linear-gradient(135deg, #FFF8E1, #FFFFFF);
+        background: linear-gradient(135deg, #FFF8E1, #FFFFFF);
         border: 1px solid #FFE0B2;
+        padding: 40px;
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
       }
 
       .btn {
@@ -345,34 +353,30 @@
   </head>
   <body>
     
-  <nav class="main-toolbar">
-    <div class="toolbar-container">
-      
-      <div class="toolbar-left">
-        <a href="https://www.bufs.ac.kr/bbs/board.php?bo_table=bufsmain_2023" target="_blank" title="부산외국어대학교">
-          <img src="top_logo_w.png" alt="BUFS Logo">
-        </a>
+    <nav class="main-toolbar">
+      <div class="toolbar-container">
+        
+        <div class="toolbar-left">
+          <a href="https://www.bufs.ac.kr" target="_blank" title="부산외국어대학교">
+            <img src="top_logo_w.png" alt="BUFS Logo">
+          </a>
+          <span class="divider"></span>
+          <a href="https://jit.bufs.ac.kr" target="_blank" class="dept-link" title="일본IT전공 홈페이지">
+            일본IT전공
+          </a>
+          <span class="divider"></span>
+          <span class="logo"><a href="#">CHEONGHAEJIN</a></span>
+        </div>
 
-        <span class="divider"></span>
-
-        <a href="https://www.bufs.ac.kr/bbs/board.php?bo_table=jbit_main" target="_blank" class="dept-link" title="일본IT전공 홈페이지">
-          일본IT전공
-        </a>
-
-        <span class="divider"></span>
-
-        <span class="logo"><a href="#">CHEONGHAEJIN</a></span>
+        <ul>
+          <li><a href="#about">과정소개</a></li>
+          <li><a href="#values">지원혜택</a></li>
+          <li><a href="#curriculum">로드맵</a></li>
+          <li><a href="#employment">취업처</a></li>
+          <li><a href="#support">문의</a></li>
+        </ul>
       </div>
-
-      <ul>
-        <li><a href="#about">과정소개</a></li>
-        <li><a href="#values">지원혜택</a></li>
-        <li><a href="#curriculum">로드맵</a></li>
-        <li><a href="#employment">취업처</a></li>
-        <li><a href="#support">문의</a></li>
-      </ul>
-    </div>
-  </nav>
+    </nav>
 
     <header>
       <div class="container">
@@ -494,7 +498,7 @@
             <li style="margin-bottom: 8px;">아시아정보시스템</li>
             <li style="margin-bottom: 8px;">스타티아</li>
             <li style="margin-bottom: 8px;">NEZOT</li>
-            <li>ETC</li>
+            <li>ETC (다수 우수 기업)</li>
           </ul>
         </article>
       </div>
@@ -592,7 +596,7 @@
     <section id="support">
       <h2 class="section-title">문의</h2>
       <p class="section-subtitle">
-        궁금한 사항은 언제든 문의해주세요.
+        하기의 연락처로 문의가 가능합니다.
       </p>
       
       <div class="card contact-card">
@@ -616,7 +620,7 @@
     </footer>
 
     <script>
-      /* 커리큘럼 데이터 (이모티콘 제거됨) */
+      /* 커리큘럼 데이터 */
       const curriculumData = {
         "prep-1": { year: "3학년", semester: "2학기", title: "3학년 2학기 (예비자)", course: "예비자 과정", items: [
           { text: "일본어 웹페이지 제작 기초 (45H)", type: "tech" },
@@ -701,6 +705,7 @@
       renderContent("prep-1");
       document.querySelector(".timeline-button").classList.add("active");
 
+      // === 구글 시트 API 연동 ===
       let companyData = [];
       let filteredData = [];
       const SPREADSHEET_API_URL = 'https://script.google.com/macros/s/AKfycbyMJ3nwJ6kqDZdq5wYgqCYLGojowUJqn6X5KQrID-dVVPbtM98fvgvij4lEslEvb_QX/exec';
@@ -745,7 +750,6 @@
       }
 
       function renderCharts() {
-        // [수정] 업종 차트: 전체 데이터 표시 (slice 제거)
         const indCounts = {};
         companyData.forEach(i => i.industry && (indCounts[i.industry] = (indCounts[i.industry]||0)+1));
         const sortedInd = Object.entries(indCounts).sort((a,b)=>b[1]-a[1]); 
@@ -757,7 +761,6 @@
             <div class="bar-container"><div class="bar-fill" style="width:${(v/maxInd)*100}%; background:${generateColor(k)}">${v}</div></div>
           </div>`).join('');
 
-        // [수정] 지역 차트: 전체 데이터 표시 (slice 제거)
         const locCounts = {};
         companyData.forEach(i => i.location && (locCounts[i.location] = (locCounts[i.location]||0)+1));
         const sortedLoc = Object.entries(locCounts).sort((a,b)=>b[1]-a[1]);
