@@ -339,46 +339,97 @@
       }
       .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 30px rgba(255, 109, 0, 0.35); }
 
-      /* 반응형 */
-      @media (max-width: 960px) {
-        
-        /* [1] 툴바 수정 */
-        .toolbar-container {
-          padding: 0 16px;
-        }
-        nav ul {
-          display: none; /* 모바일에서 네비게이션 메뉴 숨김 */
-        }
-        .toolbar-left .dept-link,
-        .toolbar-left .divider {
-          display: none; /* 모바일에서 '일본IT전공' 텍스트와 구분선 숨김 */
-        }
-        .toolbar-left img { height: 32px; } /* 로고 크기 살짝 줄임 */
-        .logo { font-size: 18px; }
-
-        /* [2] Hero 섹션 수정 */
-        .hero { flex-direction: column; text-align: center; justify-content: center; }
-        .hero-content, .hero-visual { width: 100%; }
-        header { padding: 80px 24px; height: auto; min-height: auto; margin-top: 0; }
-        h1 { font-size: 38px; } /* 제목 크기 조정 */
-        .hero-card { min-width: auto; margin-top: 40px; } /* 카드 최소폭 제한 해제 */
-
-        /* [3] 섹션 공통 수정 */
-        section { padding: 100px 20px 60px; }
-        .about-grid, .feature-grid { grid-template-columns: 1fr; } 
-
-        /* [4] 취업처 섹션 수정 */
-        #OB .stats-grid { grid-template-columns: 1fr; } /* 통계 카드 1열 */
-        #OB .controls-row { flex-direction: column; gap: 10px; } /* 검색/필터 세로 배치 */
-        #OB .charts-container { flex-direction: column; } /* 차트 세로 배치 */
-        #OB .search-box { min-width: 100%; } /* 검색창 폭 100% */
-        #OB .filter-select { width: 100%; } /* 필터 드롭다운 폭 100% */
-        
-        /* [5] 로드맵 수정 */
-        .timeline-nav { gap: 8px; }
-        .timeline-button { width: 80px; height: 80px; }
-        .timeline-year { font-size: 16px; }
+      #hamburger-btn {
+      display: none; 
+      background: none; border: none; padding: 10px; cursor: pointer;
+      color: var(--text); width: 44px; height: 44px;
+      transition: color 0.2s; z-index: 1001; 
       }
+      #hamburger-btn:hover { color: var(--accent); }
+      #hamburger-btn svg { width: 100%; height: 100%; display: block; }
+      
+      #main-nav-menu {
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+      }
+
+      /* 반응형 */
+      /* ❗[기존 @media 교체] 화면 폭 960px 이하에서만 적용됨 */
+   @media (max-width: 960px) {
+        
+      /* [1] 툴바 수정: 햄버거 메뉴 활성화 및 데스크톱 메뉴 숨김 */
+      .toolbar-container {
+        padding: 0 16px;
+      }
+      nav ul {
+        display: none; /* 데스크톱 메뉴는 숨김 */
+      }
+      #hamburger-btn {
+        display: block; /* 햄버거 버튼 표시 */
+      }
+      .toolbar-left .dept-link,
+      .toolbar-left .divider {
+        display: none; /* '일본IT전공' 텍스트와 구분선 숨김 */
+      }
+      .toolbar-left img { height: 32px; }
+      .logo { font-size: 18px; }
+
+      /* [1-2] 모바일 메뉴 오버레이 스타일 (오른쪽에서 슬라이드) */
+      #main-nav-menu {
+          display: flex; /* 메뉴를 모바일에서 다시 보이게 함 */
+          position: fixed; top: 0; right: 0;
+          height: 100vh; width: 250px;
+          background: var(--bg-alt); 
+          box-shadow: -4px 0 10px rgba(0,0,0,0.1);
+          flex-direction: column; 
+          padding: 100px 30px 20px;
+          gap: 20px;
+          
+          /* 기본적으로 화면 밖으로 밀어냄 */
+          transform: translateX(100%); 
+          z-index: 999; 
+          opacity: 0;
+      }
+      
+      /* 메뉴가 열렸을 때 화면 안으로 가져옴 */
+      #main-nav-menu.is-open {
+          transform: translateX(0);
+          opacity: 1;
+      }
+      
+      /* 메뉴 링크 스타일 조정 */
+      #main-nav-menu a {
+          font-size: 18px; 
+          font-weight: 700; 
+          color: var(--text);
+          padding: 8px 0;
+          border-bottom: 1px solid #eee;
+          width: 100%;
+          display: block;
+      }
+
+      /* [2] Hero 섹션 수정 */
+      .hero { flex-direction: column; text-align: center; justify-content: center; }
+      .hero-content, .hero-visual { width: 100%; }
+      header { padding: 80px 24px; height: auto; min-height: auto; margin-top: 0; }
+      h1 { font-size: 38px; }
+      .hero-card { min-width: auto; margin-top: 40px; }
+
+      /* [3] 섹션 공통 수정 */
+      section { padding: 100px 20px 60px; }
+      .about-grid, .feature-grid { grid-template-columns: 1fr; } 
+
+      /* [4] 취업처 섹션 수정 */
+      #OB .stats-grid { grid-template-columns: 1fr; }
+      #OB .controls-row { flex-direction: column; gap: 10px; }
+      #OB .charts-container { flex-direction: column; }
+      #OB .search-box { min-width: 100%; }
+      #OB .filter-select { width: 100%; }
+      
+      /* [5] 로드맵 수정 */
+      .timeline-nav { gap: 8px; }
+      .timeline-button { width: 80px; height: 80px; }
+      .timeline-year { font-size: 16px; }
+    }
     </style>
   </head>
   <body>
@@ -387,24 +438,27 @@
       <div class="toolbar-container">
         
         <div class="toolbar-left">
-          <a href="https://www.bufs.ac.kr/bbs/board.php?bo_table=bufsmain_2023" target="_blank" title="부산외국어대학교">
-            <img src="top_logo_w.png" alt="BUFS Logo">
-          </a>
-          <span class="divider"></span>
-          <a href="https://www.bufs.ac.kr/bbs/board.php?bo_table=jbit_main" target="_blank" class="dept-link" title="일본IT전공 홈페이지">
-            일본IT전공
-          </a>
-          <span class="divider"></span>
+          <a class="dept-link" href="#">일본IT전공</a>
+          <span class="divider">/</span>
+          <img src="https://i.ibb.co/L8G0m6S/cheonghaejin-logo.png" alt="CHEONGHAEJIN" height="40" />
           <span class="logo"><a href="#">CHEONGHAEJIN</a></span>
         </div>
 
-        <ul>
+        <ul id="main-nav-menu">
           <li><a href="#about">과정소개</a></li>
           <li><a href="#values">지원혜택</a></li>
           <li><a href="#curriculum">로드맵</a></li>
           <li><a href="#employment">취업처</a></li>
           <li><a href="#support">문의</a></li>
         </ul>
+        
+        <button id="hamburger-btn" aria-label="메뉴 열기/닫기">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
       </div>
     </nav>
 
@@ -857,6 +911,7 @@
     </script>
   </body>
 </html>
+
 
 
 
