@@ -341,13 +341,43 @@
 
       /* 반응형 */
       @media (max-width: 960px) {
+        
+        /* [1] 툴바 수정 */
+        .toolbar-container {
+          padding: 0 16px;
+        }
+        nav ul {
+          display: none; /* 모바일에서 네비게이션 메뉴 숨김 */
+        }
+        .toolbar-left .dept-link,
+        .toolbar-left .divider {
+          display: none; /* 모바일에서 '일본IT전공' 텍스트와 구분선 숨김 */
+        }
+        .toolbar-left img { height: 32px; } /* 로고 크기 살짝 줄임 */
+        .logo { font-size: 18px; }
+
+        /* [2] Hero 섹션 수정 */
         .hero { flex-direction: column; text-align: center; justify-content: center; }
         .hero-content, .hero-visual { width: 100%; }
-        header { padding: 80px 24px; height: auto; margin-top: 0; }
+        header { padding: 80px 24px; height: auto; min-height: auto; margin-top: 0; }
+        h1 { font-size: 38px; } /* 제목 크기 조정 */
+        .hero-card { min-width: auto; margin-top: 40px; } /* 카드 최소폭 제한 해제 */
+
+        /* [3] 섹션 공통 수정 */
         section { padding: 100px 20px 60px; }
-        .feature-grid { grid-template-columns: 1fr; } 
-        .timeline-nav { gap: 12px; }
-        .timeline-button { width: 90px; height: 90px; }
+        .about-grid, .feature-grid { grid-template-columns: 1fr; } 
+
+        /* [4] 취업처 섹션 수정 */
+        #OB .stats-grid { grid-template-columns: 1fr; } /* 통계 카드 1열 */
+        #OB .controls-row { flex-direction: column; gap: 10px; } /* 검색/필터 세로 배치 */
+        #OB .charts-container { flex-direction: column; } /* 차트 세로 배치 */
+        #OB .search-box { min-width: 100%; } /* 검색창 폭 100% */
+        #OB .filter-select { width: 100%; } /* 필터 드롭다운 폭 100% */
+        
+        /* [5] 로드맵 수정 */
+        .timeline-nav { gap: 8px; }
+        .timeline-button { width: 80px; height: 80px; }
+        .timeline-year { font-size: 16px; }
       }
     </style>
   </head>
@@ -827,6 +857,7 @@
     </script>
   </body>
 </html>
+
 
 
 
