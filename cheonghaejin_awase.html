@@ -906,11 +906,32 @@
       document.getElementById('searchInput').addEventListener('input', filterData);
       document.getElementById('industryFilter').addEventListener('change', filterData);
       document.getElementById('locationFilter').addEventListener('change', filterData);
+      
+    // === 햄버거 메뉴 기능 ===
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mainNavMenu = document.getElementById('main-nav-menu');
+
+    if (hamburgerBtn && mainNavMenu) {
+      hamburgerBtn.addEventListener('click', () => {
+        mainNavMenu.classList.toggle('is-open');
+      });
+
+      // 메뉴 항목 클릭 시 메뉴 닫기 (이동 후 깔끔하게)
+      mainNavMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          // 모바일에서만 닫기 (CSS is-open 클래스 제거)
+          if (window.innerWidth <= 960) {
+            mainNavMenu.classList.remove('is-open');
+          }
+        });
+      });
+    }
 
       loadData();
     </script>
   </body>
 </html>
+
 
 
 
