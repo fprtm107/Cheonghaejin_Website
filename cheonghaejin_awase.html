@@ -339,7 +339,8 @@
       }
       .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 30px rgba(255, 109, 0, 0.35); }
 
-      /* ❗[새 CSS] 데스크톱에서 모바일 전용 링크 숨김 */
+      /* --- [기존 CSS 복원] 데스크톱 기본 스타일 --- */
+    /* ❗[새 CSS] 데스크톱에서 모바일 전용 링크 숨김 */
     .mobile-only-link {
         display: none !important;
     }
@@ -364,15 +365,8 @@
     #main-nav-menu {
       transition: transform 0.3s ease-out, opacity 0.3s ease-out;
     }
-  
-      /* ❗[수정] .toolbar-left 정리 */
-      .toolbar-left {
-        /* 로고와 다른 요소의 gap/정렬 관련 스타일 제거 또는 단순화 */
-        display: flex; align-items: center; gap: 0; 
-      }
 
-      /* 반응형 */
-      /* ❗[기존 @media 교체] 화면 폭 960px 이하에서만 적용됨 */
+    /* --- [기존 @media 교체] 화면 폭 960px 이하에서만 적용됨 (모바일 전용) --- */
     @media (max-width: 960px) {
         
       /* [1] 툴바 수정: 모바일 전용 */
@@ -397,7 +391,7 @@
       }
       .logo { font-size: 18px; }
 
-      /* [1-2] 모바일 메뉴 오버레이 스타일 (BUFS/일본IT 포함) */
+      /* [1-2] 모바일 메뉴 오버레이 스타일 (햄버거 메뉴) */
       #main-nav-menu {
           display: flex; /* 메뉴를 모바일에서 다시 보이게 함 */
           position: fixed; top: 0; right: 0;
@@ -438,10 +432,9 @@
       /* 메뉴 구분선 표시 */
       .menu-divider {
           display: block; 
-          background-color: #f0f0f0; /* 구분선 색상 조정 */
+          background-color: #f0f0f0; 
           height: 2px;
       }
-
 
       /* [2] Hero 섹션 이후의 다른 모바일 최적화는 이전과 동일하게 유지 */
       .hero { flex-direction: column; text-align: center; justify-content: center; }
@@ -466,6 +459,7 @@
       .timeline-button { width: 80px; height: 80px; }
       .timeline-year { font-size: 16px; }
     }
+      
     </style>
   </head>
   <body>
@@ -482,7 +476,45 @@
             일본IT전공
           </a>
           <span class="divider"></span>
+          <span class="logo"><a href="#">CHEONGHAEJIN</a></span>
+        </div>
+
+        <ul id="main-nav-menu">
+          <li class="mobile-only-link">
+            <a href="https://www.bufs.ac.kr/bbs/board.php?bo_table=bufsmain_2023" target="_blank">부산외국어대학교 (BUFS)</a>
+          </li>
+          <li class="mobile-only-link">
+            <a href="https://www.bufs.ac.kr/bbs/board.php?bo_table=jbit_main" target="_blank">일본IT전공 홈페이지</a>
+          </li>
+          <li class="menu-divider mobile-only-link"></li>
           
+          <li><a href="#about">과정소개</a></li>
+          <li><a href="#values">지원혜택</a></li>
+          <li><a href="#curriculum">로드맵</a></li>
+          <li><a href="#employment">취업처</a></li>
+          <li><a href="#support">문의</a></li>
+        </ul>
+        
+        <button id="hamburger-btn" aria-label="메뉴 열기/닫기">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav><nav class="main-toolbar">
+      <div class="toolbar-container">
+        
+        <div class="toolbar-left">
+          <a href="https://www.bufs.ac.kr/bbs/board.php?bo_table=bufsmain_2023" target="_blank" title="부산외국어대학교" class="bufs-link-desktop">
+            <img src="top_logo_w.png" alt="BUFS Logo">
+          </a>
+          <span class="divider bufs-divider"></span>
+          <a href="https://www.bufs.ac.kr/bbs/board.php?bo_table=jbit_main" target="_blank" class="dept-link-desktop" title="일본IT전공 홈페이지">
+            일본IT전공
+          </a>
+          <span class="divider"></span>
           <span class="logo"><a href="#">CHEONGHAEJIN</a></span>
         </div>
 
@@ -981,6 +1013,7 @@
     </script>
   </body>
 </html>
+
 
 
 
