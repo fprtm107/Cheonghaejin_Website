@@ -400,9 +400,11 @@
         
         /* 데스크톱 전용 링크와 구분선 숨김 (BUFS, 일본IT) */
         .bufs-link-desktop, 
+        .dept-link, /* ❗ 이것이 '일본IT전공' 링크입니다. */
         .dept-link-desktop, 
-        .bufs-divider {
-            display: none !important;
+        .bufs-divider,
+        .divider:nth-of-type(1) {
+            display: none !important; /* ❗ 이 !important가 가장 강력하게 숨겨줍니다. */
         }
         
         /* 데스크톱 메뉴 숨김 */
@@ -996,3 +998,4 @@
       loadData();
     </script>
   </body>
+
