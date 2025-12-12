@@ -42,7 +42,7 @@
         line-height: 1.6;
       }
 
-      /* --- [중요] 고정 툴바 스타일 복구 --- */
+      /* --- [중요] 고정 툴바 스타일 --- */
       .main-toolbar {
         position: fixed; /* 스크롤해도 화면에 고정 */
         top: 0; 
@@ -70,14 +70,16 @@
       .toolbar-left {
         display: flex; align-items: center; gap: 16px;
       }
-      
+
       .toolbar-left img {
         height: 38px; width: auto; display: block;
       }
 
+      /* ❗[수정] 일본IT전공 링크 스타일 (밑줄 제거) */
       .dept-link {
         font-size: 16px; font-weight: 700; color: var(--text);
-        text-decoration: none !important;
+        text-decoration: none !important; /* 밑줄 확실히 제거 */
+        transition: color 0.2s;
         white-space: nowrap; /* 줄바꿈 방지 */
       }
       .dept-link:hover { color: var(--accent); }
@@ -86,15 +88,58 @@
         width: 1px; height: 16px; background-color: #ddd; margin: 0 4px;
       }
 
-      .logo { font-size: 20px; font-weight: 800; letter-spacing: 0.05em; color: var(--accent); }
+      /* ❗[수정] CHEONGHAEJIN 로고 스타일 (폰트 두께 조정) */
+      .logo { 
+        font-size: 20px; 
+        font-weight: 700; /* 800에서 700으로 낮춰 다른 폰트와의 이질감 감소 */
+        letter-spacing: 0.03em; 
+        color: var(--accent); 
+      }
       .logo a { color: inherit; text-decoration: none; }
-      
+
+      /* ❗[수정] 네비게이션 메뉴 스타일 (데스크톱) */
       nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
       nav ul a {
         color: var(--muted); text-decoration: none; font-size: 16px; font-weight: 600;
         transition: color 0.2s ease;
       }
       nav ul a:hover { color: var(--accent); }
+
+      /* ❗[추가] 방문 링크 스타일 제거 (보라색, 밑줄 제거) */
+      nav ul a:visited {
+        color: var(--muted); 
+      }
+      nav ul a:visited:hover { 
+        color: var(--accent);
+      }
+      a:visited {
+        color: var(--text); 
+        text-decoration: none;
+      }
+      
+      /* ❗[추가] 데스크톱에서 모바일 전용 요소 숨김 */
+      .mobile-only-link {
+          display: none !important;
+      }
+      
+      /* ❗[추가] 모바일 전용 햄버거 버튼 및 메뉴 스타일 */
+      .menu-divider {
+          width: 100%; height: 1px; background-color: #eee; margin: 10px 0;
+          display: none; 
+      }
+      #hamburger-btn {
+        display: none; 
+        background: none; border: none; padding: 10px; cursor: pointer;
+        color: var(--text); width: 44px; height: 44px;
+        transition: color 0.2s; z-index: 1001; 
+      }
+      #hamburger-btn:hover { color: var(--accent); }
+      #hamburger-btn svg { width: 100%; height: 100%; display: block; }
+      
+      #main-nav-menu {
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+      }
+
 
       /* --- Hero 섹션 --- */
       header {
@@ -124,9 +169,11 @@
         text-transform: uppercase; margin-bottom: 24px;
       }
 
+      /* ❗[수정] 제목 두께 조정 */
       h1 {
         margin: 0 0 24px; font-size: clamp(42px, 5vw, 64px);
         line-height: 1.2; color: #1a1a1a;
+        font-weight: 700; /* 800에서 700으로 낮춤 */
       }
 
       .hero p {
@@ -175,7 +222,8 @@
         display: flex; flex-direction: column; justify-content: flex-start;
       }
 
-      .section-title { font-size: 36px; margin: 0 0 16px; color: #1a1a1a; }
+      /* ❗[수정] 섹션 제목 두께 조정 */
+      .section-title { font-size: 36px; margin: 0 0 16px; color: #1a1a1a; font-weight: 700; }
       .section-subtitle { color: var(--muted); margin: 0 0 48px; font-size: 18px; }
 
       /* Grid Layouts */
@@ -202,10 +250,12 @@
 
       .card:hover, .feature-card:hover { transform: translateY(-4px); }
 
+      /* ❗[수정] 카드 제목 두께 조정 */
       .card h3, .feature-card h3 {
         margin: 0 0 16px; font-size: 22px;
         min-height: 40px;
         display: flex; align-items: center;
+        font-weight: 700;
       }
 
       .feature-card ul {
@@ -339,142 +389,103 @@
       }
       .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 30px rgba(255, 109, 0, 0.35); }
 
-      /* --- [기존 CSS 복원] 데스크톱 기본 스타일 --- */
-    /* ❗[새 CSS] 데스크톱에서 모바일 전용 링크 숨김 */
-    .mobile-only-link {
-        display: none !important;
-    }
-    
-    /* ❗[새 CSS] 메뉴 구분선 스타일 */
-    .menu-divider {
-        width: 100%; height: 1px; background-color: #eee; margin: 10px 0;
-        display: none; 
-    }
-    
-    /* ❗[새 CSS] 햄버거 버튼 기본 스타일 */
-    #hamburger-btn {
-      display: none; 
-      background: none; border: none; padding: 10px; cursor: pointer;
-      color: var(--text); width: 44px; height: 44px;
-      transition: color 0.2s; z-index: 1001; 
-    }
-    #hamburger-btn:hover { color: var(--accent); }
-    #hamburger-btn svg { width: 100%; height: 100%; display: block; }
-    
-    /* ❗[새 CSS] 메뉴 전환 효과 */
-    #main-nav-menu {
-      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-    }
 
-    /* --- [기존 @media 교체] 화면 폭 960px 이하에서만 적용됨 (모바일 전용) --- */
-    @media (max-width: 960px) {
+      /* --- [기존 @media 교체] 화면 폭 960px 이하에서만 적용됨 (모바일 전용) --- */
+      @media (max-width: 960px) {
+          
+        /* [1] 툴바 수정: 모바일 전용 */
+        .toolbar-container {
+          padding: 0 16px;
+        }
         
-      /* [1] 툴바 수정: 모바일 전용 */
-      .toolbar-container {
-        padding: 0 16px;
-      }
-      
-      /* 데스크톱 전용 링크와 구분선 숨김 */
-      .bufs-link-desktop, 
-      .dept-link-desktop, 
-      .bufs-divider {
-          display: none !important;
-      }
-      
-      /* 데스크톱 메뉴 숨김 */
-      nav ul {
-        display: none; 
-      }
-      
-      #hamburger-btn {
-        display: block; /* 햄버거 버튼 표시 */
-      }
-      .logo { font-size: 18px; }
+        /* 데스크톱 전용 링크와 구분선 숨김 (BUFS, 일본IT) */
+        .bufs-link-desktop, 
+        .dept-link-desktop, 
+        .bufs-divider {
+            display: none !important;
+        }
+        
+        /* 데스크톱 메뉴 숨김 */
+        nav ul {
+          display: none; 
+        }
+        
+        #hamburger-btn {
+          display: block; /* 햄버거 버튼 표시 */
+        }
+        .logo { font-size: 18px; }
 
-      /* [1-2] 모바일 메뉴 오버레이 스타일 (햄버거 메뉴) */
-      #main-nav-menu {
-          display: flex; /* 메뉴를 모바일에서 다시 보이게 함 */
-          position: fixed; top: 0; right: 0;
-          height: 100vh; width: 280px; 
-          background: var(--bg-alt); 
-          box-shadow: -4px 0 10px rgba(0,0,0,0.1);
-          flex-direction: column; 
-          padding: 80px 30px 20px;
-          gap: 15px; 
-          transform: translateX(100%); 
-          z-index: 999; 
-          opacity: 0;
-      }
-      #main-nav-menu.is-open {
-          transform: translateX(0);
-          opacity: 1;
-      }
-      
-      /* 모바일 전용 링크 표시 */
-      .mobile-only-link {
-          display: list-item !important; 
-      }
+        /* [1-2] 모바일 메뉴 오버레이 스타일 (햄버거 메뉴) */
+        #main-nav-menu {
+            display: flex !important; /* 모바일에서만 flex로 표시 */
+            position: fixed; top: 0; right: 0;
+            height: 100vh; width: 280px; 
+            background: var(--bg-alt); 
+            box-shadow: -4px 0 10px rgba(0,0,0,0.1);
+            flex-direction: column; 
+            padding: 80px 30px 20px;
+            gap: 15px; 
+            transform: translateX(100%); 
+            z-index: 999; 
+            opacity: 0;
+        }
+        #main-nav-menu.is-open {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        /* 모바일 전용 링크 표시 */
+        .mobile-only-link {
+            display: list-item !important; 
+        }
 
-      /* 메뉴 링크 스타일 */
-      #main-nav-menu a {
-          font-size: 17px; font-weight: 600; color: var(--text);
-          padding: 8px 0; border: none; width: 100%; display: block;
-      }
-      
-      /* BUFS/일본 IT 링크 강조 */
-      #main-nav-menu li:nth-child(1) a,
-      #main-nav-menu li:nth-child(2) a {
-          font-weight: 700;
-          color: var(--accent);
-          font-size: 18px;
-      }
-      
-      /* 메뉴 구분선 표시 */
-      .menu-divider {
-          display: block; 
-          background-color: #f0f0f0; 
-          height: 2px;
-      }
+        /* 메뉴 링크 스타일 */
+        #main-nav-menu a {
+            font-size: 17px; font-weight: 600; color: var(--text);
+            padding: 8px 0; border: none; width: 100%; display: block;
+        }
+        
+        /* BUFS/일본 IT 링크 강조 */
+        #main-nav-menu li:nth-child(1) a,
+        #main-nav-menu li:nth-child(2) a {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 18px;
+        }
+        
+        /* 메뉴 구분선 표시 */
+        .menu-divider {
+            display: block; 
+            background-color: #f0f0f0; 
+            height: 2px;
+        }
 
-      /* [2] Hero 섹션 이후의 다른 모바일 최적화는 이전과 동일하게 유지 */
-      .hero { flex-direction: column; text-align: center; justify-content: center; }
-      .hero-content, .hero-visual { width: 100%; }
-      header { padding: 80px 24px; height: auto; min-height: auto; margin-top: 0; }
-      h1 { font-size: 38px; }
-      .hero-card { min-width: auto; margin-top: 40px; }
+        /* [2] Hero 섹션 이후의 다른 모바일 최적화는 이전과 동일하게 유지 */
+        .hero { flex-direction: column; text-align: center; justify-content: center; }
+        .hero-content, .hero-visual { width: 100%; }
+        header { padding: 80px 24px; height: auto; min-height: auto; margin-top: 0; }
+        h1 { font-size: 38px; }
+        .hero-card { min-width: auto; margin-top: 40px; }
 
-      /* [3] 섹션 공통 수정 */
-      section { padding: 100px 20px 60px; }
-      .about-grid, .feature-grid { grid-template-columns: 1fr; } 
+        /* [3] 섹션 공통 수정 */
+        section { padding: 100px 20px 60px; }
+        .about-grid, .feature-grid { grid-template-columns: 1fr; } 
 
-      /* [4] 취업처 섹션 수정 */
-      #OB .stats-grid { grid-template-columns: 1fr; }
-      #OB .controls-row { flex-direction: column; gap: 10px; }
-      #OB .charts-container { flex-direction: column; }
-      #OB .search-box { min-width: 100%; }
-      #OB .filter-select { width: 100%; }
-      
-      /* [5] 로드맵 수정 */
-      .timeline-nav { gap: 8px; }
-      .timeline-button { width: 80px; height: 80px; }
-      .timeline-year { font-size: 16px; }
-    }
-
-      /* ❗[추가] 방문 링크 스타일 제거 */
-      nav ul a:visited {
-        color: var(--muted); 
+        /* [4] 취업처 섹션 수정 */
+        #OB .stats-grid { grid-template-columns: 1fr; }
+        #OB .controls-row { flex-direction: column; gap: 10px; }
+        #OB .charts-container { flex-direction: column; }
+        #OB .search-box { min-width: 100%; }
+        #OB .filter-select { width: 100%; }
+        
+        /* [5] 로드맵 수정 */
+        .timeline-nav { gap: 8px; }
+        .timeline-button { width: 80px; height: 80px; }
+        .timeline-year { font-size: 16px; }
       }
-      nav ul a:visited:hover { 
-        color: var(--accent);
-      }
-      a:visited {
-        color: var(--text); 
-        text-decoration: none;
-      }
-      
     </style>
   </head>
- <body>
+  <body>
     
     <nav class="main-toolbar">
       <div class="toolbar-container">
@@ -484,7 +495,7 @@
             <img src="top_logo_w.png" alt="BUFS Logo">
           </a>
           <span class="divider bufs-divider"></span>
-          <a href="https://www.bufs.ac.kr/bbs/board.php?bo_table=jbit_main" target="_blank" class="dept-link-desktop" title="일본IT전공 홈페이지">
+          <a href="https://www.bufs.ac.kr/bbs/board.php?bo_table=jbit_main" target="_blank" class="dept-link" title="일본IT전공 홈페이지">
             일본IT전공
           </a>
           <span class="divider"></span>
@@ -962,28 +973,26 @@
       document.getElementById('industryFilter').addEventListener('change', filterData);
       document.getElementById('locationFilter').addEventListener('change', filterData);
       
-    // === 햄버거 메뉴 기능 ===
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const mainNavMenu = document.getElementById('main-nav-menu');
-    
-    if (hamburgerBtn && mainNavMenu) {
-      hamburgerBtn.addEventListener('click', () => {
-        mainNavMenu.classList.toggle('is-open');
-      });
-    
-      // 메뉴 항목 클릭 시 메뉴 닫기
-      mainNavMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          // 모바일에서만 닫기
-          if (window.innerWidth <= 960) {
-            mainNavMenu.classList.remove('is-open');
-          }
+      // === 햄버거 메뉴 기능 ===
+      const hamburgerBtn = document.getElementById('hamburger-btn');
+      const mainNavMenu = document.getElementById('main-nav-menu');
+      
+      if (hamburgerBtn && mainNavMenu) {
+        hamburgerBtn.addEventListener('click', () => {
+          mainNavMenu.classList.toggle('is-open');
         });
-      });
-    }
+      
+        // 메뉴 항목 클릭 시 메뉴 닫기
+        mainNavMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            // 모바일에서만 닫기
+            if (window.innerWidth <= 960) {
+              mainNavMenu.classList.remove('is-open');
+            }
+          });
+        });
+      }
 
       loadData();
     </script>
   </body>
-</html>
-
