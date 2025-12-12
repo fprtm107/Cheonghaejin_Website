@@ -351,63 +351,80 @@
       #main-nav-menu {
         transition: transform 0.3s ease-out, opacity 0.3s ease-out;
       }
+      .menu-divider {
+          width: 100%; height: 1px; background-color: #eee; margin: 10px 0;
+          display: none; /* 기본적으로 숨김 */
+      }
+  
+      /* ❗[수정] .toolbar-left 정리 */
+      .toolbar-left {
+        /* 로고와 다른 요소의 gap/정렬 관련 스타일 제거 또는 단순화 */
+        display: flex; align-items: center; gap: 0; 
+      }
 
       /* 반응형 */
       /* ❗[기존 @media 교체] 화면 폭 960px 이하에서만 적용됨 */
-   @media (max-width: 960px) {
+    @media (max-width: 960px) {
         
-      /* [1] 툴바 수정: 햄버거 메뉴 활성화 및 데스크톱 메뉴 숨김 */
+      /* [1] 툴바 수정: CHEONGHAEJIN 로고와 햄버거 버튼만 남김 */
       .toolbar-container {
         padding: 0 16px;
       }
+      
+      /* 데스크톱 메뉴 숨김 */
       nav ul {
-        display: none; /* 데스크톱 메뉴는 숨김 */
+        display: none; 
       }
       #hamburger-btn {
         display: block; /* 햄버거 버튼 표시 */
       }
-      .toolbar-left .dept-link,
-      .toolbar-left .divider {
-        display: none; /* '일본IT전공' 텍스트와 구분선 숨김 */
-      }
-      .toolbar-left img { height: 32px; }
       .logo { font-size: 18px; }
 
-      /* [1-2] 모바일 메뉴 오버레이 스타일 (오른쪽에서 슬라이드) */
+      /* [1-2] 모바일 메뉴 오버레이 스타일 ( BUFS/일본IT 포함 ) */
       #main-nav-menu {
-          display: flex; /* 메뉴를 모바일에서 다시 보이게 함 */
+          display: flex;
           position: fixed; top: 0; right: 0;
-          height: 100vh; width: 250px;
+          height: 100vh; width: 280px; /* 폭을 조금 넓힘 */
           background: var(--bg-alt); 
           box-shadow: -4px 0 10px rgba(0,0,0,0.1);
           flex-direction: column; 
-          padding: 100px 30px 20px;
-          gap: 20px;
+          padding: 80px 30px 20px;
+          gap: 15px; /* 간격 조정 */
           
-          /* 기본적으로 화면 밖으로 밀어냄 */
           transform: translateX(100%); 
           z-index: 999; 
           opacity: 0;
       }
-      
-      /* 메뉴가 열렸을 때 화면 안으로 가져옴 */
       #main-nav-menu.is-open {
           transform: translateX(0);
           opacity: 1;
       }
       
-      /* 메뉴 링크 스타일 조정 */
+      /* 메뉴 링크 스타일 */
       #main-nav-menu a {
-          font-size: 18px; 
-          font-weight: 700; 
+          font-size: 17px; 
+          font-weight: 600; 
           color: var(--text);
           padding: 8px 0;
-          border-bottom: 1px solid #eee;
-          width: 100%;
-          display: block;
+          border: none;
+          width: 100%; display: block;
+      }
+      
+      /* BUFS/일본 IT 링크를 강조 */
+      #main-nav-menu li:nth-child(1) a,
+      #main-nav-menu li:nth-child(2) a {
+          font-weight: 700;
+          color: var(--accent);
+          font-size: 18px;
+      }
+      
+      /* 메뉴 구분선 표시 */
+      .menu-divider {
+          display: block; 
       }
 
-      /* [2] Hero 섹션 수정 */
+
+      /* [2] Hero 섹션 이후의 다른 모바일 최적화는 이전과 동일하게 유지 */
       .hero { flex-direction: column; text-align: center; justify-content: center; }
       .hero-content, .hero-visual { width: 100%; }
       header { padding: 80px 24px; height: auto; min-height: auto; margin-top: 0; }
@@ -438,14 +455,21 @@
       <div class="toolbar-container">
         
         <div class="toolbar-left">
-          <a class="dept-link" href="#">일본IT전공</a>
-          <span class="divider">/</span>
-          <img src="https://i.ibb.co/L8G0m6S/cheonghaejin-logo.png" alt="CHEONGHAEJIN" height="40" />
           <span class="logo"><a href="#">CHEONGHAEJIN</a></span>
         </div>
 
         <ul id="main-nav-menu">
-          <li><a href="#about">과정소개</a></li>
+          <li>
+            <a href="https://www.bufs.ac.kr/bbs/board.php?bo_table=bufsmain_2023" target="_blank">
+              부산외국어대학교 (BUFS)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.bufs.ac.kr/bbs/board.php?bo_table=jbit_main" target="_blank">
+              일본IT전공 홈페이지
+            </a>
+          </li>
+          <li class="menu-divider"></li> <li><a href="#about">과정소개</a></li>
           <li><a href="#values">지원혜택</a></li>
           <li><a href="#curriculum">로드맵</a></li>
           <li><a href="#employment">취업처</a></li>
@@ -910,16 +934,16 @@
     // === 햄버거 메뉴 기능 ===
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const mainNavMenu = document.getElementById('main-nav-menu');
-
+    
     if (hamburgerBtn && mainNavMenu) {
       hamburgerBtn.addEventListener('click', () => {
         mainNavMenu.classList.toggle('is-open');
       });
-
-      // 메뉴 항목 클릭 시 메뉴 닫기 (이동 후 깔끔하게)
+    
+      // 메뉴 항목 클릭 시 메뉴 닫기
       mainNavMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
-          // 모바일에서만 닫기 (CSS is-open 클래스 제거)
+          // 모바일에서만 닫기
           if (window.innerWidth <= 960) {
             mainNavMenu.classList.remove('is-open');
           }
